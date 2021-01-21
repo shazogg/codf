@@ -1,0 +1,22 @@
+{
+  "name": "codf",
+  "version": "1.0.0",
+  "description": "codf is a collaborative text editor app.",
+  "main": "app.js",
+  "scripts": {
+    "start": "pm2 kill && pm2-dev start app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shazogg/codf.git"
+  },
+  "author": "shazogg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shazogg/codf/issues"
+  },
+  "homepage": "https://github.com/shazogg/codf#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
