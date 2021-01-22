@@ -7,6 +7,16 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
+        <div id="upload-popup" class="popup" style="display: none;">
+            <div class="popup-box">
+                <div class="popup-box-top">
+                    <span class="text popup-title">Upload file on editor</span>
+                    <div id="upload-popup-close-button" class="popup-close-button">
+                        <span class="text noselect">X</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <nav class="navbar">
             
             <div class="navbar-item">
@@ -46,7 +56,8 @@
         <script src="index.js" type="module"></script>
         <script src="modules/query.js" type="module"></script>
         <script src="modules/event.js" type="module"></script>
-        <script src="modules/page.js" type="module"></script>
+        <script src="modules/pages.js" type="module"></script>
         <script src="modules/utils.js" type="module"></script>
+        <script src="modules/popups.js" type="module"></script>
     </body>
 </html>

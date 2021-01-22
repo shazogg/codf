@@ -3,11 +3,12 @@
 // Imports
 import {query} from "./modules/query.js";
 import {event} from "./modules/event.js";
-import {page} from "./modules/page.js";
+import {pages} from "./modules/pages.js";
 import {utils} from "./modules/utils.js";
+import {popups} from "./modules/popups.js";
 
 // Constants
-const pages = {
+const main_pages = {
     0: "text-editor",
     1: "about-help"
 }
@@ -25,7 +26,7 @@ function set_actual_page_from_url_params() {
         let page_id = parseInt(url_parameters.page_id);
 
         // Set page
-        page.set_page(pages, page_id);
+        pages.set_page(main_pages, "block", page_id);
 
         // Set actual page id
         actual_page_id = page_id;
@@ -52,7 +53,7 @@ function about_and_help_button() {
         }
 
         // Set page
-        page.set_page(pages, 1);
+        pages.set_page(main_pages, "block", 1);
 
         // Set actual page id
         actual_page_id = 1;
@@ -64,7 +65,7 @@ function about_and_help_button() {
         }
 
         // Set page
-        page.set_page(pages, 0);
+        pages.set_page(main_pages, "block", 0);
 
         // Set actual page id
         actual_page_id = 0;
@@ -82,3 +83,5 @@ event.add_event_listener(document.getElementById("about-help-button"), "click", 
 
 // Start
 set_actual_page_from_url_params();
+
+popups.create_popup("upload-popup", "upload-popup-close-button", "flex");
