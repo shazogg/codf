@@ -34,6 +34,25 @@ body {
     
 }
 
+.black {
+    color: black;
+}
+
+.link {
+    margin: 0;
+    font-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(135, 206, 235);
+}
+
+.link:hover {
+    color: rgb(110, 181, 210);
+}
+
+.link:active {
+    color: rgb(85, 156, 185);
+}
+
 .navbar {
     position: sticky;
     height: 5%;
@@ -77,4 +96,72 @@ body {
 
 .tab {
     padding-left: 2em;
+}
+
+.popup {
+    background-color: rgba(0, 0, 0, 0.50);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-box {
+    height: 50%;
+    width: 50%;
+    background-color: rgb(50, 50, 50);
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-box-top {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popup-content {
+    height: 100%;
+    width: 100%;
+    padding: 2.5%;
+}
+
+.popup-close-button {
+    background-color: red;
+    height: 100%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-close-button:hover {
+    background-color: rgb(191, 0, 0);
+}
+
+.popup-close-button:active {
+    background-color:rgb(128, 0, 0);
+}
+
+.popup-title {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-input {
+    background-color: white;
+    border: 0;
+    outline: none;
+}
+
+.text-input:focus {
+    outline: 1px;
+    outline-style: solid;
+    outline-color: blue;
 }
