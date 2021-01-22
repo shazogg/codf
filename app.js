@@ -3,13 +3,13 @@
 // Constants
 const express = require("express");
 const app = express();
-const port = 80;
+const port = 3000;
 
 // Static serv
 app.use(express.static("public"));
 
 // App listening
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log("App running !");
 });
   
