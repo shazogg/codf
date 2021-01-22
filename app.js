@@ -9,7 +9,7 @@ const port = 80;
 app.use(express.static("public"));
 
 // App listening
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log("App running !");
 });
   

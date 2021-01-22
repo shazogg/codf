@@ -15,27 +15,38 @@
             <div class="navbar-item">
                 <span class="text noselect">Copy join link</span>
             </div>
-            <div class="navbar-item">
+            <div id="download-button" class="navbar-item">
                 <span class="text noselect">Download</span>
             </div>
             <div class="navbar-item">
                 <span class="text noselect">Upload</span>
             </div>
-            <div class="navbar-item" onclick="show_about_and_help()">
-                <span id="about-help-button" class="text noselect">About and help</span>
+            <div id="about-help-button" class="navbar-item">
+                <span id="about-help-button-text" class="text noselect">About and help</span>
             </div>
         </nav>
         <main class="main">
-            <textarea id="main-text" class="text text-edit" placeholder="Type here !"></textarea>
-            <div id="about-help" class="page">
+            <textarea id="text-editor" class="text text-edit" style="display: none;" placeholder="Type here !"></textarea>
+            <div id="about-help" class="page" style="display: none;">
                 <p class="text">
-                    About :<br>
-                    <span class="tab text">This is a test project created by shazogg and distributed under Zlib License.</span><br><br>
-                    Contact :<br>
-                    <span class="tab text"><a class="text" href="https://github.com/shazogg" target="_blank" rel="noopener noreferrer">Link to my github</a></span>
+                    <ins>About</ins> :<br>
+                    <span class="tab text">This is a project created by shazogg and distributed under Zlib License.</span><br><br>
+                    <ins>Contact</ins> :<br>
+                    <span class="tab text"><a class="link" href="https://github.com/shazogg" target="_blank" rel="noopener noreferrer"><i>Link to my github</i></a></span><br><br>
+                    <ins>Help</ins> :<br>
+                    <span class="tab text">The "<ins>New</ins>" button is to create new document and delete the actual document.</span><br>
+                    <span class="tab text">The "<ins>Copy join link</ins>" button is to copy in clipboard the collaborate link, share it with others so that they can join it.</span><br>
+                    <span class="tab text">The "<ins>Download</ins>" button is to download localy the document in ".txt" file.</span><br>
+                    <span class="tab text">The "<ins>Upload</ins>" button is to upload to server a ".txt" file.</span><br>
+                    <span class="tab text">The "<ins>About and help</ins>" button is to access to this page.</span><br>
+                    <span class="tab text">The "<ins>Return to editor</ins>" button is to return to the editor page.</span><br>
                 </p>
             </div>
         </main>
-        <script src="index.js"></script>
+        <script src="index.js" type="module"></script>
+        <script src="modules/query.js" type="module"></script>
+        <script src="modules/event.js" type="module"></script>
+        <script src="modules/page.js" type="module"></script>
+        <script src="modules/utils.js" type="module"></script>
     </body>
 </html>
