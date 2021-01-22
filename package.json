@@ -4,7 +4,7 @@
   "description": "codf is a collaborative text editor app.",
   "main": "app.js",
   "scripts": {
-    "start": "pm2 kill && pm2-dev start app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
