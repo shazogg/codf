@@ -1,8 +1,8 @@
 // index.js
 
 // Imports
-import {query} from "./modules/query.js";
-import {event} from "./modules/event.js";
+import {querys} from "./modules/querys.js";
+import {events} from "./modules/events.js";
 import {pages} from "./modules/pages.js";
 import {utils} from "./modules/utils.js";
 import {popups} from "./modules/popups.js";
@@ -19,7 +19,7 @@ var actual_page_id = 0;
 // Set actual page from url parameter
 function set_actual_page_from_url_params() {
     // Get url params
-    let url_parameters = query.get_url_params()
+    let url_parameters = querys.get_url_params()
 
     if(Object.keys(url_parameters).length > 0 && url_parameters.page_id != null) {
         // Parse page id
@@ -72,16 +72,36 @@ function about_and_help_button() {
     }
 
     // Set page id url parameter
-    query.set_url_params({
+    querys.set_url_params({
         "page_id": actual_page_id
     });
 }
 
+// Upload button
+function upload_button() {
+    popups.create_popup("upload-popup", "upload-popup-close-button", "flex");
+}
+
+// Pseudo input change
+function pseudo_input_change() {
+    // Get pseudo input element
+    let pseudo_input_element = document.getElementById("pseudo-input");
+
+    // Set url query
+    if(pseudo_input_element != null && pseudo_input_element.value != null) {
+        querys.set_url_params({
+            "pseudo": pseudo_input_element.value
+        });
+    }
+}
+
 // Register events
-event.add_event_listener(document.getElementById("download-button"), "click", download_button);
-event.add_event_listener(document.getElementById("about-help-button"), "click", about_and_help_button);
+events.add_event_listener(document.getElementById("download-button"), "click", download_button);
+events.add_event_listener(document.getElementById("upload-button"), "click", upload_button);
+events.add_event_listener(document.getElementById("about-help-button"), "click", about_and_help_button);
+events.add_event_listener(document.getElementById("pseudo-input"), "input", pseudo_input_change);
 
 // Start
 set_actual_page_from_url_params();
 
-popups.create_popup("upload-popup", "upload-popup-close-button", "flex");
+popups.create_popup("login-popup", "login-popup-close-button", "flex");

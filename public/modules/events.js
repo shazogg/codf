@@ -1,4 +1,4 @@
-// event.js
+// events.js
 
 // Add event listener
 function add_event_listener(element, event_type, callback) {
@@ -8,9 +8,9 @@ function add_event_listener(element, event_type, callback) {
 }
 
 // Event object
-let event = {
+let events = {
     add_event_listener: add_event_listener
 };
 
 // Exports
-export {event};
+export {events};

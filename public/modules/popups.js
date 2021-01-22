@@ -2,16 +2,14 @@
 
 // Imports
 import {pages} from "./pages.js";
-import {event} from "./event.js";
-
-
+import {events} from "./events.js";
 
 // Create popup
 function create_popup(popup_page_id, popup_close_button_id=null, popup_default_display_type="block") {
     if(popup_page_id != null && popup_page_id.length != null && popup_page_id.length > 0) {
         // Popup close button
         if(popup_close_button_id != null && popup_close_button_id.length != null && popup_close_button_id.length > 0) {
-            event.add_event_listener(document.getElementById(popup_close_button_id), "click", function() {
+            events.add_event_listener(document.getElementById(popup_close_button_id), "click", function() {
                 close_popup(popup_page_id);
             });
         }
@@ -41,7 +39,8 @@ function close_popup(popup_page_id) {
 
 // Popups object
 let popups = {
-    create_popup: create_popup
+    create_popup: create_popup,
+    close_popup: close_popup
 };
 
 // Exports

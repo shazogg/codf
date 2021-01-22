@@ -113,6 +113,7 @@ body {
     width: 50%;
     background-color: rgb(50, 50, 50);
     display: flex;
+    flex-direction: column;
 }
 
 .popup-box-top {
@@ -120,6 +121,12 @@ body {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+}
+
+.popup-content {
+    height: 100%;
+    width: 100%;
+    padding: 2.5%;
 }
 
 .popup-close-button {
@@ -145,4 +152,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.text-input {
+    background-color: white;
+    border: 0;
+    outline: none;
+}
+
+.text-input:focus {
+    outline: 1px;
+    outline-style: solid;
+    outline-color: blue;
 }

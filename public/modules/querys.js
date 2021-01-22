@@ -1,4 +1,4 @@
-// query.js
+// querys.js
 
 // Get url parameters
 function get_url_params() {
@@ -32,11 +32,11 @@ function set_url_params(params) {
     }
 }
 
-// Query object
-let query = {
+// Querys object
+let querys = {
     get_url_params: get_url_params,
     set_url_params: set_url_params
 };
 
 // Exports
-export {query};
+export {querys};

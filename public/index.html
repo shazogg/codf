@@ -7,6 +7,19 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
+        <div id="login-popup" class="popup" style="display: none;">
+            <div class="popup-box">
+                <div class="popup-box-top">
+                    <span class="text popup-title">Login</span>
+                    <div id="login-popup-close-button" class="popup-close-button">
+                        <span class="text noselect">X</span>
+                    </div>
+                </div>
+                <div class="popup-content">
+                    <input id="pseudo-input" class="text-input" type="text" placeholder="Type your pseudo">
+                </div>
+            </div>
+        </div>
         <div id="upload-popup" class="popup" style="display: none;">
             <div class="popup-box">
                 <div class="popup-box-top">
@@ -28,7 +41,7 @@
             <div id="download-button" class="navbar-item">
                 <span class="text noselect">Download</span>
             </div>
-            <div class="navbar-item">
+            <div id="upload-button" class="navbar-item">
                 <span class="text noselect">Upload</span>
             </div>
             <div id="about-help-button" class="navbar-item">
@@ -54,10 +67,5 @@
             </div>
         </main>
         <script src="index.js" type="module"></script>
-        <script src="modules/query.js" type="module"></script>
-        <script src="modules/event.js" type="module"></script>
-        <script src="modules/pages.js" type="module"></script>
-        <script src="modules/utils.js" type="module"></script>
-        <script src="modules/popups.js" type="module"></script>
     </body>
 </html>
