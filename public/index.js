@@ -137,7 +137,7 @@ function create_collab() {
     let url_parameters = querys.get_url_params()
 
     // Create collab
-    collab.create("ws://" + adress[2] + "/ws", url_parameters.token, function(text) {
+    collab.create("wss://" + adress[2] + "/ws", url_parameters.token, function(text) {
         // Get text editor element
         let text_editor_element = document.getElementById("text-editor");
 
