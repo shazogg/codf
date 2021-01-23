@@ -3,21 +3,16 @@
 // Connect
 function connect(adress, onopen, onmessage, onclose, onerror) {
     if(adress != null && adress.length != null && adress.length > 0) {
-        let ws;
-
-        try {
-            // Create websocket
-            ws = new WebSocket(adress);
-
-        } catch(error) {}
+        // Create websocket
+        let ws = new WebSocket(adress);
 
         // On error
         if(onerror != null) {
-            socket.onerror = onerror;
+            ws.onerror = onerror;
         }
 
         // On open
-        socket.onopen = function(event) {
+        ws.onopen = function(event) {
             if(onopen != null) {
                 onopen(event);
             }
@@ -35,6 +30,7 @@ function connect(adress, onopen, onmessage, onclose, onerror) {
 
 // Websockets object
 let websockets = {
+    connect: connect
 };
 
 // Exports

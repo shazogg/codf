@@ -7,11 +7,11 @@ function download_text(filename, text) {
         let element = document.createElement("a");
 
         // Set element atribute
-        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-        element.setAttribute('download', filename);
+        element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+        element.setAttribute("download", filename);
         
         // Hide element
-        element.style.display = 'none';
+        element.style.display = "none";
 
         // Append element to document
         document.body.appendChild(element);
