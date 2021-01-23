@@ -6,7 +6,8 @@ import {events} from "./modules/events.js";
 import {pages} from "./modules/pages.js";
 import {utils} from "./modules/utils.js";
 import {popups} from "./modules/popups.js";
-import {websockets} from "./modules/websockets.js";
+import {collab} from "./modules/collab.js";
+import {clipboard} from "./modules/clipboard.js";
 
 // Constants
 const main_pages = {
@@ -41,6 +42,23 @@ function set_actual_page_from_url_params() {
     }
 }
 
+// Copy join link button
+function copy_join_link_button() {
+    // Get collab token
+    let collab_token = collab.copy_token();
+
+    if(collab_token != null && typeof collab_token == "string" && collab_token.length > 0) {
+        // Get adress
+        let adress = window.location.href.split("/")
+
+        // Create join link
+        let join_link = adress[0] + "//" + adress[2] + "/?token=" + collab_token;
+        
+        // Copy to clipboard
+        clipboard.copy(join_link);
+    }
+}
+
 // Download button
 function download_button() {
     let textarea_element = document.getElementById("text-editor");
@@ -53,11 +71,6 @@ function download_button() {
 // Upload button
 function upload_button() {
     popups.create_popup("upload-popup", "upload-popup-close-button", "flex");
-}
-
-// Settings button
-function settings_button() {
-    popups.create_popup("settings-popup", "settings-popup-close-button", "flex");
 }
 
 // About and help button
@@ -95,41 +108,43 @@ function about_and_help_button() {
     });
 }
 
-// Pseudo input change
-function pseudo_input_change() {
-    // Get pseudo input element
-    let pseudo_input_element = document.getElementById("pseudo-input");
+// Text editor change
+function text_editor_change() {
+    // Get text editor element
+    let text_editor_element = document.getElementById("text-editor");
 
-    // Set local storage pseudo input
-    if(pseudo_input_element != null && pseudo_input_element.value != null) {
-        localStorage.setItem("pseudo", pseudo_input_element.value)
-    }
-}
-
-// Set settings
-function set_settings() {
-    // Get pseudo from local storage
-    let pseudo = localStorage.getItem("pseudo");
-
-    if(pseudo != null && pseudo.length != null) {
-        // Get pseudo input element
-        let pseudo_input_element = document.getElementById("pseudo-input");
-
-        // Set pseudo input value
-        if(pseudo_input_element != null && pseudo_input_element.value != null) {
-            pseudo_input_element.value = pseudo;
-        }    
+    if(text_editor_element != null && text_editor_element.value != null) {
+        collab.text_change(text_editor_element.value);
     }
 }
 
 // Register events
+events.add_event_listener(document.getElementById("copy-join-link-button"), "click", copy_join_link_button);
 events.add_event_listener(document.getElementById("download-button"), "click", download_button);
 events.add_event_listener(document.getElementById("upload-button"), "click", upload_button);
-events.add_event_listener(document.getElementById("settings-button"), "click", settings_button);
 events.add_event_listener(document.getElementById("about-help-button"), "click", about_and_help_button);
-events.add_event_listener(document.getElementById("pseudo-input"), "input", pseudo_input_change);
+events.add_event_listener(document.getElementById("text-editor"), "input", text_editor_change);
 
 // Start
 set_actual_page_from_url_params();
 
-set_settings();
+// Create collab
+function create_collab() {
+    // Get adress
+    let adress = window.location.href.split("/")
+
+    // Get url parameters
+    let url_parameters = querys.get_url_params()
+
+    // Create collab
+    collab.create("ws://" + adress[2] + "/ws", url_parameters.token, function(text) {
+        // Get text editor element
+        let text_editor_element = document.getElementById("text-editor");
+
+        if(text_editor_element != null && text_editor_element.value != null) {
+            text_editor_element.value = text;
+        }
+    });
+}
+
+create_collab();

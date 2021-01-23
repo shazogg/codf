@@ -3,6 +3,7 @@
 // Constants
 const express = require("express");
 const express_ws = require("express-ws");
+const collab = require("./modules/collab");
 const app = express();
 const port = 3000;
 
@@ -16,11 +17,11 @@ app.use(express.static("public"));
 app.ws("/ws", function(ws, req) {
     // On websocket message
     ws.on("message", function(msg) {
-        console.log(msg);
+        collab.process(msg, ws);
     });
     
     // On websocket close
-    ws.on("close", function(msg) {
+    ws.on("close", function(event) {
         console.log("Closed !");
     });
 });
